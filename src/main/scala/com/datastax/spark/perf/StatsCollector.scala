@@ -4,10 +4,12 @@ import org.apache.spark._
 import org.apache.spark.scheduler._
 import com.datastax.spark.perf.metrics._
 
-object StatsCollector extends SparkFirehoseListener {
+class StatsCollector extends SparkFirehoseListener {
 
   var currentApp : AppMetrics = new AppMetrics
   var currentJob : JobMetrics = null
+  import StatsCollector._
+  setCurrentApp(currentApp)
 
   override def onEvent(event: SparkListenerEvent): Unit = {
     event match {
@@ -60,3 +62,11 @@ object StatsCollector extends SparkFirehoseListener {
   }
 }
 
+object StatsCollector {
+
+  var instance : AppMetrics = null
+
+  def setCurrentApp(app: AppMetrics): Unit = { instance = app }
+  def getAppMetrics : AppMetrics = return instance
+
+}

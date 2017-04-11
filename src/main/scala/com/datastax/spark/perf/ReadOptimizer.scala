@@ -44,7 +44,7 @@ object ReadOptimizer extends App {
 
     paramGrid.map(paramMap => {
       cassandraCount(keyspace, table, paramMap)
-      (paramMap, StatsCollector.currentApp.jobMetrics(0).endTime - StatsCollector.currentApp.jobMetrics(0).startTime)
+      (paramMap, StatsCollector.getAppMetrics.jobMetrics(0).endTime - StatsCollector.getAppMetrics.jobMetrics(0).startTime)
     }).sortBy(_._2).take(3).foreach(println)
 
   }
