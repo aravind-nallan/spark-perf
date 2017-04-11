@@ -11,22 +11,12 @@ import org.apache.spark.ml.param._
 import com.datastax.spark.perf.metrics._
 
 //TODO:
-// 1) Separate out the various classes so we can do optimizers separately from information gathering.
-//    Info gathering may have value by itself in helping customers debug something when we dont have
-//    access to the UI.
-// 2) Create GIT repo and structure.
-// 3) Collect and print all accessible info.
-// 4) Create an analyzer framework where once the data is collected from a single app, it can be analyzed
+// 1) Create an analyzer framework where once the data is collected from a single app, it can be analyzed
 //    by a list of analyzers to figure out what happened and suggest fixes.
-// 5) For optimizers need to look at implementing strategies where we can select the next option to try
+// 2) For optimizers need to look at implementing strategies where we can select the next option to try
 //    when one fails or based on other objectives.
-// 6) How to get info about cores/memory available across cluster and assigned to application.
+// 3) How to get info about cores/memory available across cluster and assigned to application.
 //    ExecutorAdded has core info
-// 7) How to get task metrics information?
-//    SparkListenerTaskEnd, SparkListenerExecutorMetricsUpdated have TaskMetrics(GC, shuffle, result serialization, spill, etc)
-//    ExecutorsListener - combines task info to get exectuor info. UI classes calculate distros
-// 8) Associate metrics w/ ParamMap
-// 9) ParamMaps need to be configurable
 
 object ReadOptimizer extends App {
 
