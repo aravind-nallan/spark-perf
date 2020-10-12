@@ -14,7 +14,7 @@
     <scala.main.version>2.10</scala.main.version>
     <scalatest.version>3.0.0</scalatest.version>
     <connector.version>1.6.0</connector.version>
-    <junit.version>4.12</junit.version>
+    <junit.version>4.13.1</junit.version>
   </properties>
 
   <dependencies>
